@@ -28,9 +28,9 @@ func (l Lemme) doc() string {
             lr = append(lr, fmt.Sprintf("n° %d %s", nr, r.grq))
         }
     }
-    return fmt.Sprintf("clé %s %s, %s : %s\n  rad. %s",
+    return fmt.Sprintf("clé %s %s, %s-%s : %s\n  rad. %s",
     l.cle,
-    strings.Join(l.Grq, ","), l.Indmorph, l.Traduction,
+    strings.Join(l.Grq, ","), l.Indmorph, l.Pos, l.Traduction,
     strings.Join(lr, "\n       "))
 }
 
@@ -129,7 +129,7 @@ func creeLemme(l string) *Lemme {
             } else if strings.HasSuffix(lem.Indmorph, " n.") {
                 lem.Genre = "neutre"
             }
-            // pos des prépositions
+            // pos des prépositions, négations et adverbes
 			cacc := contient(lem.Indmorph, "+ acc.")
 			cabl := contient(lem.Indmorph, "+ abl.")
 			if cacc && cabl {
@@ -142,8 +142,6 @@ func creeLemme(l string) *Lemme {
                 lem.Pos = "neg"
             } else if contient(lem.Indmorph, "adv.") {
                 lem.Pos = "Adv"
-            } else {
-                lem.Pos = lem.modele.pos
             }
 
         case 5 : // fréquence
