@@ -62,7 +62,7 @@ func arbos(port string) {
         conn, _ := ln.Accept()
         message, _ := bufio.NewReader(conn).ReadString('\n')
         if len(message) < 1 {continue}
-        fmt.Print("requête ", string(message))
+		fmt.Println(string(message))
         resultat := lemarbos(message)
         encoder := gob.NewEncoder(conn)
         encoder.Encode(resultat)
