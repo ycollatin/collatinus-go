@@ -20,6 +20,7 @@ func (d Des) clone() (dc *Des) {
     dc.gr = d.gr
     dc.grq = d.grq
     dc.morpho = d.morpho
+	dc.modele = d.modele
     dc.nr = d.nr
     return dc
 }
