@@ -11,7 +11,7 @@ var morphos = make(map[int]string)
 
 func lismorphos() {
 	ll := lignes("data/morphos.fr")
-    for i:=0; i<len(ll);i++ {
+	for i := 0; i < len(ll); i++ {
 		ecl := strings.Split(ll[i], ":")
 		if len(ecl) > 1 {
 			n, _ := strconv.Atoi(ecl[0])

@@ -1,31 +1,33 @@
 package main
+
 import (
-    "fmt"
-    "html/template"
-    "log"
-    "net/http"
+	"fmt"
+	"html/template"
+	"log"
+	"net/http"
 )
 
 type Lsr struct {
-    Forme string
-    Llem Res
+	Forme string
+	Llem  Res
 }
 
 func lemm(w http.ResponseWriter, r *http.Request) {
-    var lres []Lsr
-    r.ParseForm()
-    p := r.Form["texte"][0]
-    lm := mots(p)
-    for _, m := range lm {
-        lemm, _ := lemmatise(m)
-        nl := Lsr{m, lemm}
-        lres = append(lres, nl)
-    }
-    t, err := template.New("tlem").Funcs(template.FuncMap{
-        "Deref": func(lem *Lemme) Lemme {
-            return *lem},
-    }).Parse(
-      `<!DOCTYPE HTML>
+	var lres []Lsr
+	r.ParseForm()
+	p := r.Form["texte"][0]
+	lm := mots(p)
+	for _, m := range lm {
+		lemm, _ := lemmatise(m)
+		nl := Lsr{m, lemm}
+		lres = append(lres, nl)
+	}
+	t, err := template.New("tlem").Funcs(template.FuncMap{
+		"Deref": func(lem *Lemme) Lemme {
+			return *lem
+		},
+	}).Parse(
+		`<!DOCTYPE HTML>
        <html>
        <head>
          <meta charset="utf-8">
@@ -57,29 +59,31 @@ func lemm(w http.ResponseWriter, r *http.Request) {
        </body>
        </head>
        </html>`)
-       if err != nil {
-           fmt.Println(err)
-       } else {
-           e := t.Execute(w, lres)
-           if e != nil { log.Fatal(e) }
-       }
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		e := t.Execute(w, lres)
+		if e != nil {
+			log.Fatal(e)
+		}
+	}
 }
 
 func req(w http.ResponseWriter, r *http.Request) {
-    if r.Method == "GET" {
-        t := template.Must(template.ParseFiles("index.gtpl"))
-        t.Execute(w, nil)
-    }
+	if r.Method == "GET" {
+		t := template.Must(template.ParseFiles("index.gtpl"))
+		t.Execute(w, nil)
+	}
 }
 
 func serveur(port string) {
-    http.HandleFunc("/lem", lemm)
-    http.HandleFunc("/", req)
-    fmt.Println("serveur port", port)
+	http.HandleFunc("/lem", lemm)
+	http.HandleFunc("/", req)
+	fmt.Println("serveur port", port)
 	err := http.ListenAndServe(":"+port, nil)
-    if err != nil {
-        log.Fatal("ListenAndServe: ", err)
-    }
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
 }
 
 /*
