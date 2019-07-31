@@ -177,7 +177,6 @@ func lismodeles() {
             for _, sdes := range dd {
                 if strings.HasPrefix(sdes, "$") {
                     ddv := strings.TrimPrefix(sdes, "$")
-                    // ddv := sdes[1:]
                     ldv := vardes[ddv]
                     for _, dv := range ldv {
                         ddd = append(ddd, dv)
@@ -197,23 +196,23 @@ func lismodeles() {
                     ddd = append(ddd, sdes)
                 }
             }
-            lend := len(ddd)
-            for ides, ili := range li {
-                var nd *Des
-                if ides < lend {
-                    sld := ddd[ides]
-                    ecld := strings.Split(sld, ",")
-                    for _, cld := range ecld {
-                        nd = creeDes(cld, m, ili, nr)
-                        m.desm[nd.nr] = append(m.desm[nd.nr], nd)
-                    }
-                } else if nd != nil {
-                    nnd := nd.clone()
-                    nnd.nr = nnd.nr + 1
-                    m.desm[nd.nr] = append(m.desm[nd.nr], nnd)
-                }
-            }
-            // désinences supplémentaires
+			maxd := len(ddd)
+			var nd *Des
+			for ides, ili := range li {
+				if ides < maxd {
+					sld := ddd[ides]
+					ecld := strings.Split(sld, ",")
+					for _, cld := range ecld {
+						nd = creeDes(cld, m, ili, nr)
+						m.desm[nd.nr] = append(m.desm[nd.nr], nd)
+					}
+				} else if nd != nil {
+					nnd := nd.clone()
+					nnd.morpho += 1
+					m.desm[nd.nr] = append(m.desm[nd.nr], nnd)
+				}
+			}
+        // désinences supplémentaires
         case "des+":
             // TODO les des+ peuvent utiliser les $listes
             if m.pere != nil {
