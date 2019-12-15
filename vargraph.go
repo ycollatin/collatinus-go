@@ -91,8 +91,8 @@ func varsF(f string) (post []string) {
 	return
 }
 
-func lisExp() {
-	lreg := lignes("data/vargraph.la")
+func lisExp(nf string) {
+	lreg := lignes(nf)
 	for _, l := range lreg {
 		ecl := strings.Split(l, ":")
 		lexp = append(lexp, re{g: ecl[0], d: ecl[1]})
