@@ -1,15 +1,19 @@
-/*   collatinus  coll.go   */
-
+//   collatinus  - lemmatisation et analyse morpho de textes latins
 package main
 
 /*
 	XXX - bogues
 
 	TODO
+	- écrire un lisdata() pour que les données du module soient toutes lues.
+	  Seuls les lemmes sont lus. Il faudrait ajouter
+	   . irréguliers
+	   . vargraph 
+	   . modeles
 	- moteur.go : il ne devrait pas y avoir de désinence nil dans la
 	  boucle lemmatise()
 	- paramètres supplémentaires possibles :
-        -h sortie html
+        -w sortie html
 		-t traduction
 		-l tri alpha des lemmes
 		-m tri alpha des mots
@@ -49,6 +53,8 @@ func data() {
 		nc = "data/" + module + "/"
 		lisLemmes(nc + "lemmes.la")
 		lisTraductions(nc + "lemmes.fr")
+		lisIrregs(nc + "irregs.la")
+		lisExp(nc + "vargraph.la")
 	}
 	lisLemmes("data/lemmes.la")
 	lisTraductions("data/lemmes.fr")
@@ -60,7 +66,7 @@ func data() {
 	}
 	lisIrregs("data/irregs.la")
 	fmt.Println(len(irregs), "irréguliers")
-	lisExp()
+	lisExp("data/vargraph.la")
 	fmt.Println(len(lexp), "variantes graphiques\n")
 	dat = true
 }
