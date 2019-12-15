@@ -3,7 +3,7 @@
 _Portage de Collatinus sous Go._
 
 ## Installation
-$ https://github.com/ycollatin/collatinus-go    
+$ git clone https://github.com/ycollatin/collatinus-go    
 $ cd collatinus-go    
 $ make    
 $ cd bin/    
