@@ -1,5 +1,4 @@
 /*     collatinus - moteur.go   */
-
 package main
 
 import (
