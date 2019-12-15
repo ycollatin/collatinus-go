@@ -24,10 +24,11 @@ func creeIrr(l string) (irr *Irr) {
 var irregs = make(map[string]*Irr)
 
 func lisIrregs(nf string) {
-	//ll := lignes("data/irregs.la")
 	ll := lignes(nf)
 	for _, l := range ll {
 		nirr := creeIrr(l)
+		// L'irrégulier n'est ajouté que s'il
+		// n'est pas encore dans la base.
 		if irregs[nirr.gr] == nil {
 			irregs[nirr.gr] = nirr
 		}
