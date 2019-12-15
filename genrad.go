@@ -1,5 +1,4 @@
 //          genrad.go
-
 package main
 
 import (
