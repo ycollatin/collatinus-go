@@ -8,7 +8,7 @@ package main
 	- écrire un lisdata() pour que les données du module soient toutes lues.
 	  Seuls les lemmes sont lus. Il faudrait ajouter
 	   . irréguliers
-	   . vargraph 
+	   . vargraph
 	   . modeles
 	- moteur.go : il ne devrait pas y avoir de désinence nil dans la
 	  boucle lemmatise()

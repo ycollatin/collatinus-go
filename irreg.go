@@ -7,14 +7,20 @@ import (
 type Irr struct {
 	grq,
 	gr string
-	lem    *Lemme
-	lmorph []int
+	lem      *Lemme
+	lmorph   []int
+	exclusif bool
 }
 
 func creeIrr(l string) (irr *Irr) {
 	ecl := strings.Split(l, ":")
 	irr = new(Irr)
 	irr.grq = ecl[0]
+	d := len(irr.grq) - 1
+	if irr.grq[d] == '*' {
+		irr.grq = irr.grq[:d]
+		irr.exclusif = true
+	}
 	irr.gr = atone(irr.grq)
 	irr.lem = lemmes[ecl[1]]
 	irr.lmorph = listei(ecl[2])
