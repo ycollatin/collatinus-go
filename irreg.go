@@ -16,8 +16,7 @@ func creeIrr(l string) (irr *Irr) {
 	ecl := strings.Split(l, ":")
 	irr = new(Irr)
 	irr.grq = ecl[0]
-	d := len(irr.grq) - 1
-	if irr.grq[d] == '*' {
+	if d := len(irr.grq) - 1; irr.grq[d] == '*' {
 		irr.grq = irr.grq[:d]
 		irr.exclusif = true
 	}
