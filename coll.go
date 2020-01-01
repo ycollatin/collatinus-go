@@ -53,9 +53,10 @@ func data() {
 		nc = "data/" + module + "/"
 		lisLemmes(nc + "lemmes.la")
 		lisTraductions(nc + "lemmes.fr")
-		lisIrregs(nc + "irregs.la")
+		//lisIrregs(nc + "irregs.la")
 		lisExp(nc + "vargraph.la")
 	}
+	lisExp("data/vargraph.la")
 	lisLemmes("data/lemmes.la")
 	lisTraductions("data/lemmes.fr")
 	fmt.Println(len(lemmes), "lemmes")
@@ -66,7 +67,6 @@ func data() {
 	}
 	lisIrregs("data/irregs.la")
 	fmt.Println(len(irregs), "irréguliers")
-	lisExp("data/vargraph.la")
 	fmt.Println(len(lexp), "variantes graphiques\n")
 	dat = true
 }

@@ -84,7 +84,7 @@ func lemmatiseF(f string) (result Res) {
 	}
 
 	// radical-désinence
-	for r >= "" {
+	for {
 		lrad := radicaux[r]
 		if len(lrad) > 0 {
 			// si le radical est en -i et la dés en i-, ii peut
