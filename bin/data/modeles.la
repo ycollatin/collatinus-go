@@ -552,7 +552,7 @@ pos:p
 modele:ille
 pere:ipse
 des:13,37,39:0:ĕ;ŭd
-des+:15,18,21,25,27,42,43,45:0:ūnc3;ōc3;ōscĭnĕ1;āec3;ānc3;ōc1;āec;āec
+des+:15,18,21,25,27,42,43,45:0:ūnc;ōc;ōscĭnĕ;āec;ānc;ōc;āec;āec
 
 modele:qui
 R:1:3,0
@@ -589,7 +589,7 @@ modele:quilibet
 pere:qui
 R:1:8,0
 sufd:lĭbĕt
-sufd:lŭbĕt
+!sufd:lŭbĕt
 
 modele:quinam
 pere:qui
