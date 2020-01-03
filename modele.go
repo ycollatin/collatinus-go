@@ -8,7 +8,7 @@ import (
 type Modele struct {
 	id    string
 	desm  map[int][]*Des
-	lgenR []Genrad
+	lgenR []*Genrad
 	pere  *Modele
 	abs   []int
 	suf   []string
@@ -42,7 +42,7 @@ func (m Modele) habet(d *Des) bool {
 
 // habetR(gnr Genrad) bool
 // vrai si le modèle m a déjà le générateur de radical gnr
-func (m Modele) habetR(gnr Genrad) bool {
+func (m Modele) habetR(gnr *Genrad) bool {
 	for _, genrad := range m.lgenR {
 		if genrad.num == gnr.num {
 			return true
@@ -159,7 +159,7 @@ func lismodeles() {
 		case "R":
 			num := strtoint(ecl[1])
 			if ecl[2] == "K" {
-				m.lgenR = append(m.lgenR, Genrad{num, 0, ""})
+				m.lgenR = append(m.lgenR, &Genrad{num, 0, ""})
 			} else {
 				lp := strings.Split(ecl[2], ",")
 				oter := strtoint(lp[0])
@@ -167,11 +167,11 @@ func lismodeles() {
 				if ajout == "0" {
 					ajout = ""
 				}
-				m.lgenR = append(m.lgenR, Genrad{num, oter, ajout})
+				m.lgenR = append(m.lgenR, &Genrad{num, oter, ajout})
 			}
 		case "abs":
 			m.abs = listei(ecl[1])
-		case "des":
+		case "des","des+":
 			li := listei(ecl[1])
 			// cas des variables
 			nr := strtoint(ecl[2])
@@ -216,10 +216,9 @@ func lismodeles() {
 					m.desm[nd.nr] = append(m.desm[nd.nr], nnd)
 				}
 			}
-		// désinences supplémentaires
-		case "des+":
+			// désinences supplémentaires
 			// TODO les des+ peuvent utiliser les $listes
-			if m.pere != nil {
+			if cle == "des+" && m.pere != nil {
 				li := listei(ecl[1])
 				for i := 0; i < len(li); i++ {
 					ld := m.pere.desm[li[i]]
@@ -242,6 +241,7 @@ func lismodeles() {
 		}
 	}
 	// il faut ajouter le dernier modèle lu
+	m.herite()
 	m.ajsuffd()
 	m.ajsuff()
 	modeles[m.id] = m
