@@ -124,6 +124,17 @@ func (m *Modele) ajsuff() {
 	}
 }
 
+func (m *Modele) ldesmorph(morph int) (ld []*Des) {
+	for _, dd := range m.desm {
+		for _, d := range dd {
+			if d.morpho == morph {
+				ld = append(ld, d)
+			}
+		}
+	}
+	return ld
+}
+
 var modeles = make(map[string]*Modele)
 var vardes = make(map[string][]string)
 
@@ -171,7 +182,7 @@ func lismodeles() {
 			}
 		case "abs":
 			m.abs = listei(ecl[1])
-		case "des","des+":
+		case "des", "des+":
 			li := listei(ecl[1])
 			// cas des variables
 			nr := strtoint(ecl[2])
@@ -216,10 +227,22 @@ func lismodeles() {
 					m.desm[nd.nr] = append(m.desm[nd.nr], nnd)
 				}
 			}
-			// désinences supplémentaires
+			// si les désinences sont des+, le modèle doit
+			// hériter des désinences de son père de même
+			// morpho
 			// TODO les des+ peuvent utiliser les $listes
 			if cle == "des+" && m.pere != nil {
 				li := listei(ecl[1])
+				for _, nmorph := range li {
+					// XXX non, les des de morph nmorph
+					ldesp := m.pere.ldesmorph(nmorph)
+					for _, desp := range ldesp {
+						nd = desp.clone()
+						nd.modele = m
+						m.desm[nd.nr] = append(m.desm[nd.nr], nd)
+					}
+				}
+				/*
 				for i := 0; i < len(li); i++ {
 					ld := m.pere.desm[li[i]]
 					for j := 0; j < len(ld); j++ {
@@ -229,6 +252,7 @@ func lismodeles() {
 						m.desm[nd.nr] = append(m.desm[nd.nr], nd)
 					}
 				}
+				*/
 			}
 		case "pos":
 			m.pos = val
