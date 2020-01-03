@@ -32,11 +32,13 @@ import (
 	"strings"
 )
 
-var dat bool
+var (
+	dat bool
+	module string
+	modules []string
+)
 
 const version = "Alpha"
-
-var modules []string
 
 // lecture des données et affichage des effectifs
 func data() {
@@ -49,11 +51,10 @@ func data() {
 	fmt.Println(len(modeles), "modèles")
 	var nc string
 	if len(module) > 0 {
-		fmt.Println("module", module)
 		nc = "data/" + module + "/"
 		lisLemmes(nc + "lemmes.la")
 		lisTraductions(nc + "lemmes.fr")
-		//lisIrregs(nc + "irregs.la")
+		fmt.Println("module", module, len(lemmes), "lemmes")
 		lisExp(nc + "vargraph.la")
 	}
 	lisExp("data/vargraph.la")
@@ -102,8 +103,6 @@ func interact() {
 	}
 }
 
-var module string
-
 func main() {
 
 	var h bool
@@ -116,14 +115,11 @@ func main() {
 	var p = flag.String("p", "8080", "Port du ѕerveur. doit être précédéz de l'option -s")
 	var i = flag.Bool("i", false, "mode interactif")
 
+	flag.Parse()
 	module = *m
 
-	flag.Parse()
 	fmt.Println("Collatinus Go")
 	fmt.Println("© Yves Ouvrard, GPL3")
-	if *m > "" {
-		fmt.Println("module", *m)
-	}
 
 	if h {
 		flag.PrintDefaults()
