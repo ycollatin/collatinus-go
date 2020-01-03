@@ -5836,7 +5836,7 @@ Cyane:Cyané [nymphe de Sicile, fontaine de Cyané]
 Cyaneae:îles Cyanées (dans le Pont-Euxin, Symplégades de la mythologie)
 cyathus:cyathe (coupe ou mesure), coupe
 cybaea:vaisseau de transport
-Cybebe:Cybele (mont de Phrygie)
+Cybebe:Cybebe (mont de Phrygie)
 Cybele:Cybèle
 Cybeleius:de Cybèle
 Cybelus:Cybele [montagne]
