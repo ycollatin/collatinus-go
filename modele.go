@@ -242,17 +242,6 @@ func lismodeles() {
 						m.desm[nd.nr] = append(m.desm[nd.nr], nd)
 					}
 				}
-				/*
-				for i := 0; i < len(li); i++ {
-					ld := m.pere.desm[li[i]]
-					for j := 0; j < len(ld); j++ {
-						nd := ld[j].clone()
-						nd.modele = m
-						// XXX attention, cette désinence doit pouvoir être suffixée
-						m.desm[nd.nr] = append(m.desm[nd.nr], nd)
-					}
-				}
-				*/
 			}
 		case "pos":
 			m.pos = val
