@@ -119,7 +119,7 @@ func estRomain(f string) bool {
 	return true
 }
 
-func lignes(nf string) []string {
+func Lignes(nf string) []string {
 	f, err := os.Open(nf)
 	if err != nil {
 		log.Fatal(err)

@@ -139,7 +139,7 @@ var modeles = make(map[string]*Modele)
 var vardes = make(map[string][]string)
 
 func lismodeles() {
-	ll := lignes("data/modeles.la")
+	ll := Lignes("data/modeles.la")
 	var m *Modele
 	for _, l := range ll {
 		if l == "" {

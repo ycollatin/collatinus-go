@@ -29,7 +29,7 @@ func creeIrr(l string) (irr *Irr) {
 var irregs = make(map[string]*Irr)
 
 func lisIrregs(nf string) {
-	ll := lignes(nf)
+	ll := Lignes(nf)
 	for _, l := range ll {
 		nirr := creeIrr(l)
 		// L'irrégulier n'est ajouté que s'il

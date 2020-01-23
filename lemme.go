@@ -156,7 +156,7 @@ func creeLemme(l string) *Lemme {
 // lisLemmes()
 // lecteur de la base de lemmes
 func lisLemmes(nf string) {
-	ll := lignes(nf)
+	ll := Lignes(nf)
 	for _, l := range ll {
 		lem := creeLemme(l)
 		// si le lemme existe déjà, passer)
@@ -170,7 +170,7 @@ func lisLemmes(nf string) {
 // lisTraductions()
 // lis les traductions à martir d'un fichier lemmes.??
 func lisTraductions(nf string) {
-	ll := lignes(nf)
+	ll := Lignes(nf)
 	for _, l := range ll {
 		ecl := strings.Split(l, ":")
 		cle := ecl[0]

@@ -92,7 +92,7 @@ func varsF(f string) (post []string) {
 }
 
 func lisExp(nf string) {
-	lreg := lignes(nf)
+	lreg := Lignes(nf)
 	for _, l := range lreg {
 		ecl := strings.Split(l, ":")
 		lexp = append(lexp, re{g: ecl[0], d: ecl[1]})

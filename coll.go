@@ -134,7 +134,7 @@ func main() {
 	if *nf != "" {
 		data()
 		// analyse du contenu du fichier en argument
-		ll := lignes(*nf)
+		ll := Lignes(*nf)
 		var sortie *os.File
 		sf := *nfs != ""
 		if sf {
