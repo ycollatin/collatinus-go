@@ -70,7 +70,7 @@ func lemmatiseF(f string) (result Res) {
 		for _, nm := range irr.lmorph {
 			result = addRes(result, irr.lem, irr.grq+" "+morphos[nm])
 			if irr.exclusif {
-				return
+				continue
 			}
 		}
 	}
