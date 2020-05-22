@@ -134,6 +134,21 @@ func creeLemme(l string) *Lemme {
 			// pos des prépositions, négations et adverbes
 			cacc := contient(lem.Indmorph, "+ acc.")
 			cabl := contient(lem.Indmorph, "+ abl.")
+			switch {
+			case cacc && cabl:
+				lem.Pos = "prepAA"
+			case cabl:
+				lem.Pos = "prepAbl"
+			case cacc:
+				lem.Pos = "prepAcc"
+			case contient(lem.Indmorph, "neg"):
+				lem.Pos = "neg"
+			case contient(lem.Indmorph, "adv"):
+				lem.Pos = "Adv"
+			case contient(lem.Indmorph, "interj."):
+				lem.Pos = "intj"
+			}
+			/*	
 			if cacc && cabl {
 				lem.Pos = "prepAA"
 			} else if cabl {
@@ -145,7 +160,7 @@ func creeLemme(l string) *Lemme {
 			} else if contient(lem.Indmorph, "adv.") {
 				lem.Pos = "Adv"
 			}
-
+			*/
 		case 5: // fréquence
 			lem.Freq = strtoint(e)
 		}
