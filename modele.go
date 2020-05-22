@@ -51,7 +51,7 @@ func (m Modele) habetR(gnr *Genrad) bool {
 	return false
 }
 
-// renonce(des *Des) bool
+// estabs(des *Des) bool
 // vrai si le modèle m refuse d'hériter de la déninence
 // de morpho n° m, parce ce n° figure dans ses abs
 func (m Modele) estabs(des *Des) bool {
@@ -140,7 +140,7 @@ var vardes = make(map[string][]string)
 
 func lismodeles() {
 	ll := Lignes("data/modeles.la")
-	var m *Modele
+	m := new(Modele)
 	for _, l := range ll {
 		if l == "" {
 			continue
@@ -221,10 +221,13 @@ func lismodeles() {
 						nd = creeDes(cld, m, ili, nr)
 						m.desm[nd.nr] = append(m.desm[nd.nr], nd)
 					}
-				} else if nd != nil {
-					nnd := nd.clone()
-					nnd.morpho += 1
-					m.desm[nd.nr] = append(m.desm[nd.nr], nnd)
+				} else {
+					sld := ddd[maxd-1]
+					ecld := strings.Split(sld, ",")
+					for _, cld := range ecld {
+						nd = creeDes(cld, m, ili, nr)
+						m.desm[nd.nr] = append(m.desm[nd.nr], nd)
+					}
 				}
 			}
 			// si les désinences sont des+, le modèle doit
