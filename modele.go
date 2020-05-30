@@ -27,14 +27,11 @@ func (m Modele) doc() string {
 		m.id, mid, m.pos, m.sufd, len(m.lgenR))
 }
 
-// habet(d *Des)
-// vrai si le modèle m a déjà la désinence d
-func (m Modele) habet(d *Des) bool {
-	for _, ldes := range m.desm {
-		for _, des := range ldes {
-			if des.morpho == d.morpho {
-				return true
-			}
+// vrai si le modeèle m a des désinences de numéro n
+func (m Modele) habetD(n int) bool {
+	for key, _ := range m.desm {
+		if key == n {
+			return true
 		}
 	}
 	return false
@@ -78,6 +75,19 @@ func (m *Modele) herite() {
 		}
 	}
 	// héritage des désinences
+	for key, value := range m.pere.desm {
+		if m.habetD(key) {
+			continue
+		}
+		for _, d := range value {
+			if !m.estabs(d) {
+				nd := d.clone()
+				nd.modele = m
+				m.desm[key] = append (m.desm[key], nd)
+			}
+		}
+	}
+	/*
 	for _, ldesp := range m.pere.desm {
 		for _, desp := range ldesp {
 			if !m.estabs(desp) && !m.habet(desp) {
@@ -87,7 +97,8 @@ func (m *Modele) herite() {
 			}
 		}
 	}
-	/*  héritage des absenst */
+	*/
+	/*  héritage des absents ? */
 }
 
 func (m *Modele) ajsuffd() {
