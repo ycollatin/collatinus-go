@@ -25,5 +25,5 @@ func (genr Genrad) rad(k string) (r string) {
 	l := len(rs)
 	rs = rs[0 : l-genr.oter]
 	r = string(rs) + genr.ajout
-	return r
+	return
 }

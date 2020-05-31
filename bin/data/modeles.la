@@ -789,7 +789,7 @@ R:0:2,0
 des:121-126:0:ĕō̆;ēs;ĕt;ēmŭs;ētĭs;ēnt
 des:127-132:0:ēbăm;ēbās;ēbăt;ēbāmŭs;ēbātĭs;ēbānt
 des:133-138:0:ēbō̆;ēbĭs;ēbĭt;ēbĭmŭs;ēbĭtĭs;ēbūnt
-! indicatif perfectum hérité
+! indicatif perfectum hérité (139-144)
 ! subjonctif
 des:157-162:0:ĕăm;ĕās;ĕăt;ĕāmŭs;ĕātĭs;ĕānt
 des:163-168:0:ērĕm;ērēs;ērĕt;ērēmŭs;ērētĭs;ērēnt
@@ -797,7 +797,7 @@ des:163-168:0:ērĕm;ērēs;ērĕt;ērēmŭs;ērētĭs;ērēnt
 des:181-186:0:ē;ētĕ;ētō;ētō;ētōtĕ;ēntō
 ! infinitif
 des:187:0:ērĕ
-des:188:1:īssĕ
+!des:188:1:īssĕ
 ! participe présent
 des:189-200:0:$ens
 des:201-212:0:$ens
