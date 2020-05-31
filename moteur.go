@@ -61,6 +61,7 @@ func addRes(r Res, l *Lemme, m string) Res {
 */
 
 func lemmatiseF(f string) (result Res) {
+	f = strings.TrimSuffix(f, "\n")
 	r := f
 	d := ""
 
