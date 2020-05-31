@@ -76,9 +76,12 @@ func (m *Modele) herite() {
 	}
 	// héritage des désinences
 	for key, value := range m.pere.desm {
+		// si le n° rad de la désinence est présent chez l'héritier,
+		// pas d'héritage : moneo et non mono
 		if m.habetD(key) {
 			continue
 		}
+		// mais il faut hériter les désinences monui
 		for _, d := range value {
 			if !m.estabs(d) {
 				nd := d.clone()
@@ -87,18 +90,6 @@ func (m *Modele) herite() {
 			}
 		}
 	}
-	/*
-	for _, ldesp := range m.pere.desm {
-		for _, desp := range ldesp {
-			if !m.estabs(desp) && !m.habet(desp) {
-				nd := desp.clone()
-				nd.modele = m
-				m.desm[nd.nr] = append(m.desm[nd.nr], nd)
-			}
-		}
-	}
-	*/
-	/*  héritage des absents ? */
 }
 
 func (m *Modele) ajsuffd() {
