@@ -61,7 +61,7 @@ func creeLemme(l string) *Lemme {
 	eclats := strings.Split(l, "|")
 	for i, e := range eclats {
 		switch i {
-		case 0:
+		case 0:  // forme canonique
 			eclg := strings.Split(e, "=")
 			// supprimer et affecter le numéro d'homonymie
 			var lgrq, lnh string
@@ -81,7 +81,7 @@ func creeLemme(l string) *Lemme {
 				lem.cle = lem.cle + lnh
 			}
 
-		case 1:
+		case 1:  // modèle
 			lem.modele = modeles[e]
 			if strings.ToLower(lem.cle) != lem.cle {
 				lem.Pos = "NP"
@@ -89,7 +89,7 @@ func creeLemme(l string) *Lemme {
 				lem.Pos = lem.modele.pos
 			}
 
-		case 2, 3:
+		case 2, 3: // 2 radicaux gén/pf, 3 supin
 			if e > "" {
 				eclR := strings.Split(e, ",")
 				for _, r := range eclR {
@@ -122,7 +122,7 @@ func creeLemme(l string) *Lemme {
 					}
 				}
 			}
-		case 4:
+		case 4: // indMorph
 			lem.Indmorph = e
 			if strings.HasSuffix(lem.Indmorph, " f.") {
 				lem.Genre = "féminin"
@@ -148,19 +148,6 @@ func creeLemme(l string) *Lemme {
 			case contient(lem.Indmorph, "interj."):
 				lem.Pos = "intj"
 			}
-			/*	
-			if cacc && cabl {
-				lem.Pos = "prepAA"
-			} else if cabl {
-				lem.Pos = "prepAbl"
-			} else if cacc {
-				lem.Pos = "prepAcc"
-			} else if contient(lem.Indmorph, "neg.") {
-				lem.Pos = "neg"
-			} else if contient(lem.Indmorph, "adv.") {
-				lem.Pos = "Adv"
-			}
-			*/
 		case 5: // fréquence
 			lem.Freq = strtoint(e)
 		}
