@@ -535,7 +535,7 @@ abs:14,20,26,32,38,44,49-120
 des:13,15-18:0:īc;ūnc;ūjŭs;ūic;ōc
 des:25,27-30:0:āec;ānc;ūjŭs;ūic;āc
 des:37,39-42:0:ōc;ōc;ūjŭs;ūic;ōc
-des:43,45:0:āec;aec
+des:43,45:0:āec;āec
 suf:13,25:ĕ
 suf:16,21,23,24,28,33,35,36,40,47,48:cĕ
 suf:13,18,25,37,39,42,43,45:ĭnĕ
@@ -607,6 +607,7 @@ pere:qui
 R:1:4,0
 des:13:1:quĭs
 des:37-39:1:quĭd
+des+:43,45:1;quă
 
 modele:siquis
 pere:quis
@@ -816,9 +817,9 @@ des:297,298:0:ērĕ;ēmĭnī
 des:299-301:0:ētŏr;ētŏr;ēntŏr
 des:302:0:ērī
 ! adjectif verbal
-des:339-350:0:ēndŭs;ēndĕ;ēndŭm;ēndī;ēndō;ēndō;ēndī;ēndī;ēndōs;ēndōrŭm;ēndīs;ēndīs
-des:351-362:0:ēndă;ēndă;ēndăm;ēndāe;ēndāe;ēndā;ēndāe;ēndāe;ēndās;ēndārŭm;ēndīs;ēndīs
-des:363-374:0:ēndŭm;ēndŭm;ēndŭm;ēndī;ēndō;ēndō;ēndă;ēndă;ēndă;ēndōrŭm;ēndīs;ēndīs
+des:339-350:0:ēnd$lupus
+des:351-362:0:ēnd$uita
+des:363-374:0:ēnd$templum
 pos:v
 
 modele:licet
@@ -872,6 +873,10 @@ des:163-168:3:$em
 des:291-296:3:ĕr;ērĭs,ērĕ;ētŭr;ēmŭr;ēmĭnī;ēntŭr
 ! ind. passif
 des:269:5:tŭr
+! adjectif verbal
+des:339-350:0:ēnd$lupus
+des:351-362:0:ēnd$uita
+des:363-374:0:ēndemplum
 
 modele:aio
 pere:lego
@@ -979,7 +984,7 @@ R:4:2,ī
 R:5:2,0
 des:121,122,124-126:4:ō̆;s;mŭs;tĭs;ūnt
 des:123:5:ĭt
-des:297:3:ĭĕrī
+des:297,302:3:ĭĕrī
 des:163-168:3:ĭĕrĕm;ĭĕrēs;ĭĕrĕt;ĭĕrēmŭs;ĭĕrētĭs;ĭĕrēnt
 
 modele:sum
@@ -1003,7 +1008,7 @@ des:181-185:2:ĕs;ēstĕ;ēstō;ēstō;ēstōtĕ
 des:186:0:ūntō
 ! infinitif
 des:187:7:ĕ
-des:416:4:fŏrĕ
+des:415:4:fŏrĕ
 ! participe futur
 des:225-260:1:tūr$lupus;tūr$uita;tūr$templum
 
