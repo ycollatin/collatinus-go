@@ -141,7 +141,7 @@ func creeLemme(l string) *Lemme {
 				lem.Pos = "prepAbl"
 			case cacc:
 				lem.Pos = "prepAcc"
-			case contient(lem.Indmorph, "neg"):
+			case contient(lem.Indmorph, "neg."):
 				lem.Pos = "neg"
 			case contient(lem.Indmorph, "adv"):
 				lem.Pos = "Adv"
