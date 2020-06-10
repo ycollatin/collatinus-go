@@ -80,7 +80,7 @@ func (m *Modele) herite() {
 			if !m.estabs(d) && !m.habetD(d.nr, d.morpho) {
 				nd := d.clone()
 				nd.modele = m
-				m.desm[key] = append (m.desm[key], nd)
+				m.desm[key] = append(m.desm[key], nd)
 			}
 		}
 	}
@@ -134,9 +134,10 @@ func (m *Modele) ldesmorph(morph int) (ld []*Des) {
 var modeles = make(map[string]*Modele)
 var vardes = make(map[string][]string)
 
-func lismodeles() {
-	ll := Lignes("data/modeles.la")
-	m := new(Modele)
+func lismodeles(nf string) {
+	//ll := Lignes(path + "modeles.la")
+	ll := Lignes(nf)
+	var m *Modele
 	for _, l := range ll {
 		if l == "" {
 			continue

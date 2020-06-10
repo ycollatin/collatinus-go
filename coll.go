@@ -33,8 +33,8 @@ import (
 )
 
 var (
-	dat bool
-	module string
+	dat     bool
+	module  string
 	modules []string
 )
 
@@ -45,9 +45,9 @@ func data() {
 	if dat {
 		return
 	}
-	lismorphos()
+	lismorphos("data/morphos.fr")
 	fmt.Println(len(morphos), "morphos")
-	lismodeles()
+	lismodeles("data/modeles.la")
 	fmt.Println(len(modeles), "modèles")
 	var nc string
 	if len(module) > 0 {

@@ -9,8 +9,9 @@ import (
 var lenm int
 var morphos = make(map[int]string)
 
-func lismorphos() {
-	ll := Lignes("data/morphos.fr")
+func lismorphos(nf string) {
+	//ll := Lignes(path + "morphos.fr")
+	ll := Lignes(nf)
 	for i := 0; i < len(ll); i++ {
 		ecl := strings.Split(ll[i], ":")
 		if len(ecl) > 1 {
