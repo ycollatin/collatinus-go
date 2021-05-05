@@ -18089,7 +18089,7 @@ prudenter:avec sagacité, avec prudence, avec clairvoyance
 prudentia:prévoyance, prévision
 pruina:gelée blanche, neige
 pruinosus:couvert de givre, glacé, glacial
-pruna:prune
+pruna:braise
 prunum:prune, prunelle
 prunus:prunier
 prurigo:démangeaison

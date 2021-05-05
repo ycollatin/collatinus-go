@@ -989,26 +989,24 @@ des:163-168:3:ĭĕrĕm;ĭĕrēs;ĭĕrĕt;ĭĕrēmŭs;ĭĕrētĭs;ĭĕrēnt
 
 modele:sum
 pere:lego
-R:0:2,0
-R:2:3,0
-R:4:3,0
-R:6:2,0
+R:0:3,0
+R:2:2,0
 R:7:3,ēss
 abs:189-374
 ! indicatif
-des:121,124,126:0:ŭm;ŭmŭs;ūnt
-des:122,123,125:2:ĕs;ēst;ēstĭs
-des:127-132:2:ĕrăm;ĕrās;ĕrăt;ĕrāmŭs;ĕrātĭs;ĕrānt
-des:133-138:2:ĕrō̆;ĕrĭs;ĕrĭt;ĕrĭmŭs;ĕrĭtĭs;ĕrūnt
+des:121,124,126:2:ŭm;ŭmŭs;ūnt
+des:122,123,125:0:ĕs;ēst;ēstĭs
+des:127-132:0:ĕrăm;ĕrās;ĕrăt;ĕrāmŭs;ĕrātĭs;ĕrānt
+des:133-138:0:ĕrō̆;ĕrĭs;ĕrĭt;ĕrĭmŭs;ĕrĭtĭs;ĕrūnt
 ! subjonctif
-des:157-162:6:$im
+des:157-162:2:$im
 des:163-168:7:$em
 ! impératif
-des:181-185:2:ĕs;ēstĕ;ēstō;ēstō;ēstōtĕ
-des:186:0:ūntō
+des:181-185:0:ĕs;ēstĕ;ēstō;ēstō;ēstōtĕ
+des:186:2:ūntō
 ! infinitif
 des:187:7:ĕ
-des:415:4:fŏrĕ
+des:415:0:fŏrĕ
 ! participe futur
 des:225-260:1:tūr$lupus;tūr$uita;tūr$templum
 
